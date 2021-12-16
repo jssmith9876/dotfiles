@@ -5,13 +5,11 @@
 " source ~/.vim_runtime/vimrcs/plugins_config.vim
 " source ~/.vim_runtime/vimrcs/extended.vim
 
-call plug#begin(expand('~/.vim/plugged'))
-Plug 'arcticicestudio/nord-vim'
-call plug#end()
-
 " Color and highlighting
-colorscheme nord
-set cursorline
+set background=dark
+packadd! dracula    " Make sure to add the dracula theme package https://draculatheme.com/vim
+syntax enable
+colorscheme dracula
 hi CursorLine cterm=none ctermbg=242
 
 " Sets the line numbers 
@@ -65,7 +63,6 @@ set nocompatible
 filetype on 
 filetype plugin on 
 filetype indent on
-syntax on
 
 " try
 " source ~/.vim_runtime/my_configs.vim
