@@ -32,12 +32,21 @@ set scrolloff=8
 set sidescrolloff=8
 set nojoinspaces
 set splitright
-set clipboard=unnamedplus
+set clipboard=unnamed
 set confirm
 set exrc
 set updatetime=300
 set redrawtime=10000
+set hlsearch
+set noundofile
 
+if has("autocmd")
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal g'\"" |
+  \ endif
+endif
 
 
 """""""""""""""""""""
