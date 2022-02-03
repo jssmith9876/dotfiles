@@ -2,13 +2,18 @@
 "			            Jordan Smith's .vimrc
 "		            github: github.com/jssmith9876
 "========================================================================
-
 """""""""""""""""""""
 "      Plugins      "
 """""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'dracula/vim',{'as':'dracula'}
+Plug 'sainnhe/edge'
+Plug 'arcticicestudio/nord-vim'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -26,7 +31,7 @@ set title
 set ignorecase
 set smartcase
 set wildmode=longest:full,full
-set nowrap
+set textwidth=140
 set mouse=a
 set scrolloff=8
 set sidescrolloff=8
@@ -39,6 +44,7 @@ set updatetime=300
 set redrawtime=10000
 set hlsearch
 set noundofile
+set noswapfile
 
 if has("autocmd")
   " When editing a file, always jump to the last cursor position
@@ -67,7 +73,30 @@ imap jj <esc>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
+" Better keybindings for NERDTree directory manager
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-f> :NERDTreeToggle<CR>
+
 """"""""""""""""""""""""""
 "  Coloring and Styling  "
 """"""""""""""""""""""""""
-colorscheme dracula
+if $TERM == "xterm-256color"
+    set t_Co=256
+endif
+
+set background=dark
+if has('termguicolors') 
+    set termguicolors
+endif
+
+" For italic styling
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+let g:nord_italic = 1
+
+colorscheme nord
+let g:airline_theme='nord'
+
+" Fix highlighting in Visual mode so it's more visible
+highlight Visual cterm=reverse ctermbg=NONE
