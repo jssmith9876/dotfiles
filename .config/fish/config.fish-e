@@ -1,0 +1,32 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+# Add global npm modules to our path
+set PATH /Users/jordan.smith.2/.nvm/versions/node/v16.15.0/bin $PATH
+
+# Set our AWS_PROFILE to DEV
+export AWS_PROFILE=DEV
+
+function nvm
+   bass source $HOME/.nvm/nvm.sh --no-use ';' nvm $argv
+end
+
+# Clear any output to get a blank terminal
+clear
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /Users/jordan.smith.2/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/jordan.smith.2/repos/monthly-reports-api/node_modules/tabtab/.completions/serverless.fish ]; and . /Users/jordan.smith.2/repos/monthly-reports-api/node_modules/tabtab/.completions/serverless.fish
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/jordan.smith.2/repos/monthly-reports-api/node_modules/tabtab/.completions/sls.fish ]; and . /Users/jordan.smith.2/repos/monthly-reports-api/node_modules/tabtab/.completions/sls.fish
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /Users/jordan.smith.2/repos/monthly-reports-api/node_modules/tabtab/.completions/slss.fish ]; and . /Users/jordan.smith.2/repos/monthly-reports-api/node_modules/tabtab/.completions/slss.fish
